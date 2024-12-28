@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federal Polytechnic, Ile-oluji</title>
+    <link rel="shortcut icon" href="./../assets/images/favicon/faviconx32.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-page {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .left-section {
+            flex: 1;
+            background: url('assets/images/bg/bg-logo.png') center center/cover no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .right-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+                background-color: rgb(125 90 158 / 53%);
+            justify-content: center;
+        }
+
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .circular-button {
+            top: 50%;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #6610f2;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .circular-button-ding { 
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #6610f2;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer; 
+            z-index: 2;
+        }
+
+        .modal-dialog {
+            top: 25%;
+        }
+
+        .modal-dialog {
+            max-width: 72em;
+        }
+
+        .circular-button:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            .login-page {
+                flex-direction: column;
+            }
+
+            .left-section {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            .right-section {
+                width: 100%;
+                z-index: 1;
+            }
+
+            .right-section .card {
+                background-color: rgba(255, 255, 255, 0.9) !important;
+                border-radius: 8px;
+            }
+            .logo {
+                display:none;
+            }
+            .logo-hiding{
+                display: block !important;  
+                background-color: rgb(125 90 158 / 53%);
+            }
+            .instruction{
+                display: block !important;
+                color:red;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="login-page">
+        <div class="logo-hiding d-none text-center">
+           <a href="index.html"><img src="assets/images/logo/logo.png" style="margin-top: 20px;" alt="FEDPOLEL"></a>
+             
+        </div>
+        <div class="left-section">
+            <div class="logo"><a href="index.html"><img src="assets/images/logo/logo.png" alt="FEDPOLEL"></a></div>
+            <button class="circular-button" data-bs-toggle="modal" data-bs-target="#infoModal">
+                <b><i class="fas fa-info"></i></b>
+            </button>
+        </div>
+        <div class="right-section">
+            <div class="card shadow-lg p-4" style="width: 100%; max-width: 500px;">
+                <div class="card-header text-center m-4">
+                    <a href="index.html"><img src="assets/images/favicon/faviconx32.png" alt="FEDPOLEL" width="42"
+                            height="42"></a>
+                    <br>
+                    <h3 class="text-center" style="font-weight: 400;"><b>Student Portal</b></h3>
+                </div>
+                <div class="card-body">
+                    <!-- Login Form -->
+                    <form id="form1" action="dashboard/studentdashboard.html">
+                        <div class="col-md-12 mb-4">
+                            <label for="validationCustomUsername" class="form-label"><b>Application or Matric
+                                    No:</b></label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="fas fa-user-alt"></i></span>
+                                <input type="text" class="form-control" id="validationCustomUsername"
+                                    placeholder="Enter Application or Matric No" name="app_or_matric"
+                                    aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">Please choose a username.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <label for="validationCustomPassword" class="form-label"><b>Password:</b></label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-key"></i></span>
+                                <input type="password" name="password" id="inputPassword5" class="form-control"
+                                    aria-describedby="inputGroupPrepend" placeholder="Enter your password" required>
+                                <div class="invalid-feedback">Please choose a password.</div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck">
+                                <label class="form-check-label" for="invalidCheck">Keep me Logged in</label>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <button class="btn btn-primary w-100" type="submit">Login Now <i
+                                    class="fas fa-arrow-alt-circle-right"></i></button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="#" class="text-decoration-none" id="forgot-password-link">Forgot Password?</a><br><br>
+                            <a href="#" class="text-decoration-none instruction d-none" data-bs-toggle="modal" data-bs-target="#infoModal">Read instruction...</a>
+                        </div>
+                    </form>
+
+                    <!-- Forgot Password Form -->
+                    <form id="form2" style="display: none;" action="dashboard/studentdashboard.html">
+                        <div class="col-md-12 mb-4">
+                            <label for="utmeMatricNumber" class="form-label"><b>UTME/Matric Number:</b></label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="fas fa-id-card"></i></span>
+                                <input type="text" class="form-control" id="utmeMatricNumber"
+                                    placeholder="Enter UTME/Matric Number" name="utme_matric_number" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <label for="emailAddress" class="form-label"><b>Email Address:</b></label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="emailAddress"
+                                    placeholder="Enter Email Address" name="email_address" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <label for="registeredPhone" class="form-label"><b>Registered Phone Number:</b></label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend"><i
+                                        class="fas fa-phone"></i></span>
+                                <input type="text" class="form-control" id="registeredPhone"
+                                    placeholder="Enter Registered Phone Number" name="registered_phone" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <label for="newPassword" class="form-label"><b>New Password:</b></label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-key"></i></span>
+                                <input type="password" class="form-control" id="newPassword"
+                                    placeholder="Enter New Password" name="new_password" required>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <label for="confirmPassword" class="form-label"><b>Confirm Password:</b></label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-key"></i></span>
+                                <input type="password" class="form-control" id="confirmPassword"
+                                    placeholder="Confirm New Password" name="confirm_password" required>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-4">
+                            <button class="btn btn-primary w-100" type="submit">Reset Password <i
+                                    class="fas fa-key"></i></button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="#" class="text-decoration-none" id="back-to-login">Back to Login</a><br><br>
+                            <a href="#" class="text-decoration-none instruction d-none" data-bs-toggle="modal" data-bs-target="#infoModal">Read instruction...</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" style="color:red; font-weight: 500;" id="infoModalLabel"><span
+                            id="cyear"></span> STUDENT
+                        REGISTRATION PROCEDURE</h5>
+                    <script>
+                        const currentYear = new Date().getFullYear();
+                        const nextYear = currentYear + 1;
+                        document.getElementById("cyear").textContent = `${currentYear}/${nextYear}`; 
+                    </script>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Step 1 - How do I Login
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <b>How do I Login?</b><br>
+                                    <b>Fresh Student</b><br>
+                                    Login with your Application/UTME Reg. Number as Username and your Surname (in
+                                    CAPITAL LETTER OR UPPERCASE) as Password
+                                    You will be required to supply your valid Email Address and Phone Number and change
+                                    your password before you can proceed
+                                    In case you forgot your password, click on the forgot password link "Get it Here"
+                                    and supply your Application Number,
+                                    your Registered Email address and Phone Number and your new password and click on
+                                    submit to reset your password and send
+                                    to your registered Phone Number and Email Address <br>
+                                    <b>Please note: FRESH STUDENTS: Your MATRIC NUMBER will be GENERATED after the
+                                        confirmation of your school fee payment.</b><br>
+                                    <b>Returning Student</b><br>
+                                    Login with your Matric Number as Username and your Surname (in CAPITAL LETTER OR
+                                    UPPERCASE) as Password
+                                    You will be required to supply your valid Email Address and Phone Number and change
+                                    your password before you can proceed
+                                    In case you forgot your password, click on the forgot password link "Get it Here"
+                                    and supply your Matric Number, your
+                                    Registered Email address and Phone Number and your new password and click on submit
+                                    to reset your password and send to
+                                    your registered Phone Number and Email Address
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Step 2 - Student Biodata
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <b>Student Biodata</b>
+                                    - Click on Student Biodata (All Student)
+                                    - It is compulsory that you fill the biodata sections accordingly. Under the Upload
+                                    section, you will be required to
+                                    upload the scanned copy of your Passport(not more than 1 month old)
+                                    - click on "Finalize and Preview Biodata Registration" under the Finalize section
+                                    - After clicking on Finalize, you will be allowed to generate school fee invoice/pay
+                                    online OR make payment at the bank
+                                    <br>
+                                    <b>Please Note:</b> You will not be able to generate school invoice/pay online OR
+                                    make payment at the bank if you fail to complete these sections appropriately.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Step 3 - Payments
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <b>How do I make payment?</b>
+                                    <b><i>Please Read this important information</i></b><br>
+                                    All forms of payment including school fee are available in your profile and payable
+                                    ONLINE via CARD PAYMENT OR OTHER PAYMENT CHANNELS
+                                    Follow the steps below to make your payment ONLINE via CARD PAYMENT OR OTHER PAYMENT
+                                    CHANNELS <br>
+
+                                    <b>Steps/Procedure</b><br>
+                                    - Click on Payment<br>
+                                    - Your payment due will be available as Debit under Student Ledger<br>
+                                    - To make any payment, you have to select the payment type, session, level, mode and
+                                    PAY ONLINE IN ANY OF THE CHANNELS OR generate invoice from which your RRR NUMBER
+                                    will be made available<br>
+                                    - Present the RRR NUMBER on the Invoice at any of the Banks listed on your invoice
+                                    and make the payment on REMITA PLATFORM ONLY<br>
+                                    - You have to confirm your payment under the Confirm Payment Section and Print your
+                                    Official Receipt<br>
+                                    - Please note: FRESH STUDENTS: Your MATRIC NUMBER will be GENERATED after the
+                                    confirmation of your school fee payment.<br>
+                                    <div class="accordion-footer text-center">
+                                        YOUR MATRIC NUMBER BECOMES YOUR USERNAME AUTOMATICALLY. Navigate to your
+                                        Dashboard
+                                        to view the generated Matric Number.
+                                        Also note that the Matric Number will be sent to your email address.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Step 4 - Course Registration
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    - Click on Course Registration <br>
+                                    - To be eligible for course registration, you must have paid and confirmed your
+                                    school fee<br>
+                                    - Your courses will be displayed for you select appropriately and submit , print and
+                                    present to the appropriate<br>
+                                    - Registration Office for approval<br>
+                                    - After approval, your must print another copies, present them for endorsement and
+                                    submit at your department.<br>
+                                    <hr>
+                                    <div class="accordion-footer text-center" style="color:red; font-weight: 500;">
+                                        Any further enquiries please visit CBT/ICT Center of the Institution
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.circular-button').forEach(button => {
+            button.addEventListener('click', () => {
+                console.log('Modal triggered.');
+            });
+        });
+    </script>
+    <script>
+        document.getElementById('forgot-password-link').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('form1').style.display = 'none';
+            document.getElementById('form2').style.display = 'block';
+        });
+
+        document.getElementById('back-to-login').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('form1').style.display = 'block';
+            document.getElementById('form2').style.display = 'none';
+        });
+    </script>
+
+</body>
+
+</html>

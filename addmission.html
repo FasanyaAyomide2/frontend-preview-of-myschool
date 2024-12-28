@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .split-page {
+            height: 100vh;
+        }
+
+        .left-part {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .right-part {
+            background: url('assets/images/bg/admission_p.png') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .right-part-logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .download-btn {
+            margin-top: 1rem;
+            background-color: green;
+            color: black;
+            border: none;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .download-btn:hover {
+            background-color: #6610f2;
+            color: white;
+        }
+
+        .form-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .form-control-icon {
+            position: relative;
+        }
+
+        .form-control-icon i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color: gray;
+        }
+
+        .form-control-icon input {
+            padding-left: 35px;
+        }
+
+        .links {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .top-left-login {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .box-container {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Top-left Login Button -->
+        <div class="top-left-login">
+            <a href="index.html" class=""><img src="assets/images/logo/logo.png" alt=""></a>
+        </div>
+
+        <div class="row split-page">
+            <!-- Left Part -->
+            <div class="col-md-6 left-part">
+                <div class="d-none card shadow-lg p-4 " id="resetform" style="width: 100%; max-width: 500px;">
+                    <div class="card-header text-center m-4">
+                        <a href="index.html"><img src="assets/images/favicon/faviconx32.png" alt="FEDPOLEL" width="42"
+                                height="42"></a>
+                        <br>
+                        <h3 class="text-center" style="font-weight: 400;"><b>Reset your Application password</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Login Form -->
+                        <form>
+                            <!-- Select Input -->
+                            <div class="col-md-12 mb-4">
+                                <label for="resetOption" class="form-label"><b>What do you want to use to reset your
+                                        password?</b></label>
+                                <select class="form-select" id="resetOption" name="reset_option" required>
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="username">Username</option>
+                                    <option value="email">Email</option>
+                                </select>
+                            </div>
+
+                            <!-- Username Input -->
+                            <div class="col-md-12 mb-4 d-none" id="usernameField">
+                                <label for="validationCustomUsername" class="form-label"><b>Username:</b></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text"><i class="fas fa-user-alt"></i></span>
+                                    <input type="text" class="form-control" id="validationCustomUsername"
+                                        name="username" placeholder="Enter your username" required>
+                                    <div class="invalid-feedback">Please enter your username.</div>
+                                </div>
+                            </div>
+
+                            <!-- Email Input -->
+                            <div class="col-md-12 mb-4 d-none" id="emailField">
+                                <label for="validationCustomEmail" class="form-label"><b>Email:</b></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <input type="email" class="form-control" id="validationCustomEmail" name="email"
+                                        placeholder="Enter your email address" required>
+                                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                                </div>
+                            </div>
+
+                            <!-- New Password Input -->
+                            <div class="col-md-12 mb-4">
+                                <label for="newPassword" class="form-label"><b>New Password:</b></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    <input type="password" name="new_password" id="newPassword" class="form-control"
+                                        placeholder="Enter your new password" required>
+                                    <div class="invalid-feedback">Please enter a new password.</div>
+                                </div>
+                            </div>
+
+                            <!-- Confirm Password Input -->
+                            <div class="col-md-12 mb-4">
+                                <label for="confirmPassword" class="form-label"><b>Confirm Password:</b></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" name="confirm_password" id="confirmPassword"
+                                        class="form-control" placeholder="Confirm your new password" required>
+                                    <div class="invalid-feedback">Passwords do not match.</div>
+                                </div>
+                            </div>
+
+                            <!-- extra link -->
+                            <div class="col-12 mb-4 text-end">
+                                <b>Already have an Account? <a href="#" class="text-decoration-none"
+                                        id="login-trigger">Log in</a></b>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12 mb-4">
+                                <button
+                                    class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2"
+                                    type="submit">
+                                    <b>Reset Password</b>
+                                    <i class="fas fa-redo-alt"></i>
+
+                                </button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <p><b>No account yet? <a href="#" class="text-decoration-none"
+                                            id="create-account">Create Account
+                                            Now</a></b></p>
+                                <p><b><a href="student_portal.html" class="text-decoration-none">Click to Visit Student
+                                            Portal</a></b></p>
+                            </div>
+
+
+                        </form>
+
+                        <script>
+                            document.getElementById('resetOption').addEventListener('change', function () {
+                                const usernameField = document.getElementById('usernameField');
+                                const emailField = document.getElementById('emailField');
+
+                                // Hide both fields initially
+                                usernameField.classList.add('d-none');
+                                emailField.classList.add('d-none');
+
+                                // Show the relevant field based on selection
+                                if (this.value === 'username') {
+                                    usernameField.classList.remove('d-none');
+                                } else if (this.value === 'email') {
+                                    emailField.classList.remove('d-none');
+                                }
+                            });
+                        </script>
+
+                    </div>
+                </div>
+                <div class="d-none card shadow-lg p-4 " id="applicationform" style=" width: 100%; max-width: 800px;">
+                    <div class="card-header text-center m-3">
+                        <a href="index.html"><img src="assets/images/favicon/faviconx32.png" alt="FEDPOLEL" width="42"
+                                height="42"></a>
+                        <br>
+                        <h3 class="text-center" style="font-weight: 400;"><b>Create your Application Account</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Login Form -->
+                        <form>
+                            <!-- Program Selection -->
+                            <div class="col-md-12 mb-3">
+                                <label for="programSelect" class="form-label"><b>Program:</b></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i
+                                            class="fas fa-graduation-cap"></i></span>
+                                    <select class="form-control" id="programSelect" name="program" required>
+                                        <option value="" disabled selected>Select Program</option>
+                                        <option value="ND_FT">National Diploma Full-Time</option>
+                                        <option value="ND_PT">National Diploma Part-Time</option>
+                                        <option value="HND_FT">Higher National Diploma Full-Time</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a program.</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Username -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="validationCustomUsername" class="form-label"><b>Username:</b></label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i
+                                                class="fas fa-user-alt"></i></span>
+                                        <input type="text" class="form-control" id="validationCustomUsername"
+                                            placeholder="Enter Username" name="username"
+                                            aria-describedby="inputGroupPrepend" required>
+                                        <div class="invalid-feedback">Please choose a username.</div>
+                                    </div>
+                                </div>
+                                <!-- Surname -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="surname" class="form-label"><b>Surname:</b></label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" id="surname" name="surname"
+                                            placeholder="Enter Surname" required>
+                                        <div class="invalid-feedback">Please enter your surname.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- First Name -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstname" class="form-label"><b>First Name:</b></label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" id="firstname" name="firstname"
+                                            placeholder="Enter First Name" required>
+                                        <div class="invalid-feedback">Please enter your first name.</div>
+                                    </div>
+                                </div>
+                                <!-- Middle Name -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="middlename" class="form-label"><b>Middle Name:</b></label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" id="middlename" name="middlename"
+                                            placeholder="Enter Middle Name">
+                                        <div class="invalid-feedback">Please enter your middle name.</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <!-- Email Address -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label"><b>Email Address:</b></label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Enter Email Address" required>
+                                        <div class="invalid-feedback">Please provide a valid email address.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Phone Number -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label"><b>Phone Number:</b></label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                        <input type="tel" class="form-control" id="phone" name="phone"
+                                            placeholder="Enter Phone Number" required>
+                                        <div class="invalid-feedback">Please enter a valid phone number.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- Password -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="password" class="form-label"><b>Password:</b></label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        <input type="password" class="form-control" id="password" name="password"
+                                            placeholder="Enter Password" required>
+                                        <div class="invalid-feedback">Please choose a password.</div>
+                                    </div>
+                                </div>
+
+                                <!-- Confirm Password -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="confirmPassword" class="form-label"><b>Confirm Password:</b></label>
+                                    <div class="input-group has-validation">
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        <input type="password" class="form-control" id="confirmPassword"
+                                            name="confirmPassword" placeholder="Confirm Password" required>
+                                        <div class="invalid-feedback">Passwords must match.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-3 d-flex justify-content-between align-items-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="termsCheckbox" required>
+                                    <label class="form-check-label" for="termsCheckbox">
+                                        <b>I accept the terms and conditions of the school</b>
+                                    </label>
+                                </div>
+                                <div>
+                                    <b>Already have an account? <a href="#" class="text-decoration-none"
+                                            id="login-trigger">Log in</a></b>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="col-12 mb-3">
+                                <button class="btn btn-primary w-100" type="submit"><b>Create Account</b> <i
+                                        class="fas fa-user-plus"></i></button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <p><b><a href="student_portal.html" class="text-decoration-none">Click to Visit Student
+                                            Portal</a></b></p>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="d-none card shadow-lg p-4 " id="admissionform" style=" width: 100%; max-width: 500px;">
+                    <div class="card-header text-center m-4">
+                        <a href="index.html"><img src="assets/images/favicon/faviconx32.png" alt="FEDPOLEL" width="42"
+                                height="42"></a>
+                        <br>
+                        <h3 class="text-center" style="font-weight: 400;"><b>Check your Admission Status</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Login Form -->
+                        <form>
+                            <div class="col-md-12 mb-4">
+                                <label for="validationCustomUsername" class="form-label"><b>Username:</b></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i
+                                            class="fas fa-user-alt"></i></span>
+                                    <input type="text" class="form-control" id="validationCustomUsername"
+                                        placeholder="Enter Username:" name="app_or_matric"
+                                        aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">Please choose a username.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <label for="validationCustomPassword" class="form-label"><b>Password:</b></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i
+                                            class="fas fa-key"></i></span>
+                                    <input type="password" name="password" id="inputPassword5" class="form-control"
+                                        aria-describedby="inputGroupPrepend" placeholder="Enter your password" required>
+                                    <div class="invalid-feedback">Please choose a password.</div>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <button class="btn btn-primary w-100" type="submit"><b>Verify Admission Status</b> <i
+                                        class="fas fa-check-circle"></i></button>
+
+                            </div>
+                            <div class="text-center mt-3">
+                                <p><b><a href="#" class="text-decoration-none" id="login-trigger">Log in</a></b></p>
+                                <p><b><a href="student_portal.html" class="text-decoration-none">Click to Visit Student
+                                            Portal</a></b></p>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card shadow-lg p-4" id="loginform" style="width: 100%; max-width: 500px;">
+                    <div class="card-header text-center m-4">
+                        <a href="index.html"><img src="assets/images/favicon/faviconx32.png" alt="FEDPOLEL" width="42"
+                                height="42"></a>
+                        <br>
+                        <h3 class="text-center" style="font-weight: 400;"><b>Login to your Application Account</b></h3>
+                    </div>
+                    <div class="card-body">
+                        <!-- Login Form -->
+                        <form action="">
+                            <div class="col-md-12 mb-4">
+                                <label for="validationCustomUsername" class="form-label"><b>Username:</b></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i
+                                            class="fas fa-user-alt"></i></span>
+                                    <input type="text" class="form-control" id="validationCustomUsername"
+                                        placeholder="Enter Username:" name="app_or_matric"
+                                        aria-describedby="inputGroupPrepend" required>
+                                    <div class="invalid-feedback">Please choose a username.</div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <label for="validationCustomPassword" class="form-label"><b>Password:</b></label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i
+                                            class="fas fa-key"></i></span>
+                                    <input type="password" name="password" id="inputPassword5" class="form-control"
+                                        aria-describedby="inputGroupPrepend" placeholder="Enter your password" required>
+                                    <div class="invalid-feedback">Please choose a password.</div>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-4 text-end">
+                                <b><a href="#" class="text-decoration-none" id="forget-trigger">forgot password?</a></b>
+                            </div>
+
+                            <div class="col-12 mb-4">
+                                <button class="btn btn-primary w-100" type="submit"><b>Login Now</b><i
+                                        class="fas fa-arrow-alt-circle-right"></i></button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <p><b><a href="student_portal.html" class="text-decoration-none">Click to Visit Student
+                                            Portal</a></b></p>
+
+                                <p><b>No account yet? <a href="#" class="text-decoration-none"
+                                            id="create-account">Create Account Now</a></b></p>
+                                <p><b><a href="#" class="text-decoration-none" id="admission-check">Click to Check your
+                                            Admission status
+                                            now!</a></b></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Part --> 
+            <div class="col-md-6 right-part" id="background_changer">
+                <button class="btn download-btn">Download Step by Step Guide for Admission</button>
+                <button class="btn download-btn">Download Available Course/Brochure</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).on('click', '#forget-trigger', function () {
+            $("#loginform").addClass("d-none");
+            $("#admissionform").addClass("d-none");
+            $("#applicationform").addClass("d-none");
+            $("#resetform").removeClass("d-none");
+        });
+
+        $(document).on('click', '#create-account', function () {
+
+            $("#loginform").addClass("d-none");
+            $("#resetform").addClass("d-none");
+            $("#admissionform").addClass("d-none");
+            $("#applicationform").removeClass("d-none");
+        });
+
+        $(document).on('click', '#admission-check', function () {
+
+            $("#loginform").addClass("d-none");
+            $("#resetform").addClass("d-none");
+            $("#applicationform").addClass("d-none");
+            $("#admissionform").removeClass("d-none");
+        });
+
+        $(document).on('click', '#login-trigger', function () {
+
+            $("#resetform").addClass("d-none");
+            $("#applicationform").addClass("d-none");
+            $("#admissionform").addClass("d-none");
+            $("#loginform").removeClass("d-none");
+        });  
+    </script>
+    <script>
+        $(document).ready(function () { 
+            function showForm(formId) {
+                $("#loginform, #resetform, #applicationform, #admissionform").addClass("d-none");
+                $(`#${formId}`).removeClass("d-none");
+            }
+
+            const lastForm = localStorage.getItem("lastForm");
+            if (lastForm) {
+                showForm(lastForm);
+            } else {
+                showForm("loginform");
+            }
+
+            $(document).on('click', '#forget-trigger', function () {
+                showForm("resetform");
+                localStorage.setItem("lastForm", "resetform");
+            });
+
+            $(document).on('click', '#create-account', function () {
+                showForm("applicationform");
+                localStorage.setItem("lastForm", "applicationform");
+            });
+
+            $(document).on('click', '#admission-check', function () {
+                showForm("admissionform");
+                localStorage.setItem("lastForm", "admissionform");
+            });
+
+            $(document).on('click', '#login-trigger', function () {
+                showForm("loginform");
+                localStorage.setItem("lastForm", "loginform");
+            });
+        });
+    </script>
+
+</body>
+
+</html>
