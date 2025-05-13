@@ -9,7 +9,7 @@ This project is built by **Fasanya Ayomide Joshua (Solution)**. It is designed t
 - [GitHub Profile](https://github.com/FasanyaAyomide2)
 ## About
 
-This webpage is created as part of the development for **Ikpeme-Precious**, a project designed to showcase personal or professional content. The webpage is live and can be accessed through the [preview link above]().
+This webpage is created as part of the development for **Ikpeme-Precious**, a project designed to showcase personal or professional content. The webpage is live and can be accessed through the [preview link above](https://fasanyaayomide2.github.io/frontend-preview-of-myschool/).
 
 ## Features
 
